@@ -1,0 +1,18 @@
+sudo: false
+
+language:
+  - python
+
+python:
+  - 3.6
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - pycodestyle coldpy
+  - pytest --verbose --capture=no coldpy
+  - pip install .
+
+notifications:
+  email: false
