@@ -6,6 +6,7 @@ from .name_rel import NameRel
 from .reference import Reference
 from .synonym import Synonym
 from .taxon import Taxon
+from .type_material import TypeMaterial
 from .vernacular_name import VernacularName
 
 __all__ = [
@@ -17,5 +18,6 @@ __all__ = [
     'Reference',
     'Synonym',
     'Taxon',
+    'TypeMaterial',
     'VernacularName'
 ]

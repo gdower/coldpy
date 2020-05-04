@@ -1,15 +1,6 @@
 
 class VernacularName:
 
-    taxon_id = ''
-    name = ''
-    transliteration = ''
-    language = ''
-    country = ''
-    life_stage = ''
-    sex = ''
-    reference_id = ''
-
     def __init__(self,
                  taxon_id,
                  name,

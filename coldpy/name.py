@@ -18,9 +18,6 @@ class Name:
                  original='',
                  code='',
                  status='',
-                 type_status='',
-                 type_material='',
-                 type_reference_id='',
                  link='',
                  remarks=''):
         self.id = id
@@ -39,9 +36,6 @@ class Name:
         self.original = original
         self.code = code
         self.status = status
-        self.type_status = type_status
-        self.type_material = type_material
-        self.type_reference_id = type_reference_id
         self.link = link
         self.remarks = remarks
 
@@ -62,9 +56,6 @@ class Name:
                str(self.original) + '\t' + \
                str(self.code) + '\t' + \
                str(self.status) + '\t' + \
-               str(self.type_status) + '\t' + \
-               str(self.type_material) + '\t' + \
-               str(self.type_reference_id) + '\t' + \
                str(self.link) + '\t' + \
                str(self.remarks) + '\n'
 
@@ -86,8 +77,6 @@ class Name:
             'original': self.original,
             'code': self.code,
             'status': self.status,
-            'type_status': self.type_status,
-            'type_reference_id': self.type_reference_id,
             'link': self.link,
             'remarks': self.remarks
         }

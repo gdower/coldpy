@@ -3,6 +3,7 @@ class Taxon:
 
     def __init__(self,
                  id,
+                 parent_id,
                  name_id,
                  provisional,
                  according_to,
@@ -15,7 +16,6 @@ class Taxon:
                  lifezone,
                  link,
                  remarks,
-                 parent_id='',
                  species_name='',
                  section_name='',
                  subgenus_name='',
@@ -34,6 +34,7 @@ class Taxon:
                  kingdom_name=''):
 
         self.id = id
+        self.parent_id = parent_id
         self.name_id = name_id
         self.provisional = provisional
         self.according_to = according_to
@@ -46,7 +47,6 @@ class Taxon:
         self.lifezone = lifezone
         self.link = link
         self.remarks = remarks
-        self.parent_id = parent_id
         self.species_name = species_name
         self.section_name = section_name
         self.subgenus_name = subgenus_name
