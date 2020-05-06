@@ -21,7 +21,7 @@ class TypeMaterial:
         self.name_id = name_id
         self.citation = citation
         self.status = status
-        self.reference_id = reference_id,
+        self.reference_id = reference_id
         self.locality = locality
         self.country = country
         self.latitude = latitude
