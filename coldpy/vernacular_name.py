@@ -7,7 +7,7 @@ class VernacularName:
                  transliteration='',
                  language='',
                  country='',
-                 life_stage='',
+                 area='',
                  sex='',
                  reference_id=''):
         self.taxon_id = taxon_id
@@ -15,7 +15,7 @@ class VernacularName:
         self.transliteration = transliteration
         self.language = language
         self.country = country
-        self.life_stage = life_stage
+        self.area = area
         self.sex = sex
         self.reference_id = reference_id
 
@@ -25,7 +25,7 @@ class VernacularName:
                self.transliteration + '\t' + \
                self.language + '\t' + \
                self.country + '\t' + \
-               self.life_stage + '\t' + \
+               self.area + '\t' + \
                self.sex + '\t' + \
                str(self.reference_id) + '\n'
 
@@ -36,7 +36,7 @@ class VernacularName:
             'transliteration': self.transliteration,
             'language': self.language,
             'country': self.country,
-            'life_stage': self.life_stage,
+            'life_stage': self.area,
             'sex': self.sex,
             'reference_id': self.reference_id
         }
