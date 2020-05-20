@@ -19,7 +19,8 @@ class Name:
                  code='',
                  status='',
                  link='',
-                 remarks=''):
+                 remarks='',
+                 needs_review=''):
         self.id = id
         self.scientific_name = scientific_name
         self.authorship = authorship
@@ -38,6 +39,7 @@ class Name:
         self.status = status
         self.link = link
         self.remarks = remarks
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.id) + '\t' + \

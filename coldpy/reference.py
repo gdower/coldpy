@@ -11,7 +11,8 @@ class Reference:
                  details='',
                  doi='',
                  link='',
-                 remarks=''):
+                 remarks='',
+                 needs_review=''):
         self.id = id
         self.citation = citation
         self.author = author
@@ -22,6 +23,7 @@ class Reference:
         self.doi = doi
         self.link = link
         self.remarks = remarks
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.id) + '\t' + \

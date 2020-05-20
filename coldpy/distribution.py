@@ -6,12 +6,14 @@ class Distribution:
                  area,
                  gazetteer='',
                  status='',
-                 reference_id=''):
+                 reference_id='',
+                 needs_review=''):
         self.taxon_id = taxon_id
         self.area = area
         self.gazetteer = gazetteer
         self.status = status
         self.reference_id = reference_id
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.taxon_id) + '\t' + \

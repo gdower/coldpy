@@ -31,7 +31,8 @@ class Taxon:
                  class_name='',
                  subphylum_name='',
                  phylum_name='',
-                 kingdom_name=''):
+                 kingdom_name='',
+                 needs_review=''):
 
         self.id = id
         self.parent_id = parent_id
@@ -63,6 +64,7 @@ class Taxon:
         self.subphylum_name = subphylum_name
         self.phylum_name = phylum_name
         self.kingdom_name = kingdom_name
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.id) + '\t' + \

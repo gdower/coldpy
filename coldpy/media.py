@@ -10,7 +10,8 @@ class Media:
                  created='',
                  creator='',
                  license='',
-                 link=''):
+                 link='',
+                 needs_review=''):
         self.taxon_id = taxon_id
         self.url = url
         self.media_type = media_type
@@ -20,6 +21,7 @@ class Media:
         self.creator = creator
         self.license = license
         self.link = link
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.taxon_id) + '\t' + \

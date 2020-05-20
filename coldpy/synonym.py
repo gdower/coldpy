@@ -7,13 +7,15 @@ class Synonym:
                  status='synonym',
                  reference_id='',
                  link='',
-                 remarks=''):
+                 remarks='',
+                 needs_review=''):
         self.taxon_id = taxon_id
         self.name_id = name_id
         self.status = status
         self.reference_id = reference_id
         self.link = link
         self.remarks = remarks
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.taxon_id) + '\t' + \

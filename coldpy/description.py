@@ -6,13 +6,15 @@ class Description:
                  format='',
                  description='',
                  language='',
-                 reference_id=''):
+                 reference_id='',
+                 needs_review=''):
         self.taxon_id = taxon_id
         self.category = category
         self.format = format
         self.description = description
         self.language = language
         self.reference_id = reference_id
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.taxon_id) + '\t' + \

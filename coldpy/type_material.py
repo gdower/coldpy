@@ -16,7 +16,8 @@ class TypeMaterial:
                  date='',
                  collector='',
                  link='',
-                 remarks=''):
+                 remarks='',
+                 needs_review=''):
         self.id = id
         self.name_id = name_id
         self.citation = citation
@@ -32,6 +33,7 @@ class TypeMaterial:
         self.collector = collector
         self.link = link
         self.remarks = remarks
+        self.needs_review = needs_review
 
     def __str__(self):
         return str(self.id) + '\t' + \
