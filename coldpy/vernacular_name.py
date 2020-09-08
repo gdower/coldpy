@@ -10,6 +10,7 @@ class VernacularName:
                  area='',
                  sex='',
                  reference_id='',
+                 page_reference_id='',
                  needs_review=''):
         self.taxon_id = taxon_id
         self.name = name
@@ -19,6 +20,7 @@ class VernacularName:
         self.area = area
         self.sex = sex
         self.reference_id = reference_id
+        self.page_reference_id = page_reference_id
         self.needs_review = needs_review
 
     def __str__(self):
@@ -29,7 +31,8 @@ class VernacularName:
                self.country + '\t' + \
                self.area + '\t' + \
                self.sex + '\t' + \
-               str(self.reference_id) + '\n'
+               str(self.reference_id) + '\t' + \
+               str(self.page_reference_id) + '\n'
 
     def __repr__(self):
         return {
@@ -40,5 +43,6 @@ class VernacularName:
             'country': self.country,
             'life_stage': self.area,
             'sex': self.sex,
-            'reference_id': self.reference_id
+            'reference_id': self.reference_id,
+            'page_reference_id': self.page_reference_id
         }

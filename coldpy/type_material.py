@@ -7,6 +7,7 @@ class TypeMaterial:
                  citation='',
                  status='',
                  reference_id='',
+                 page_reference_id='',
                  locality='',
                  country='',
                  latitude='',
@@ -23,6 +24,7 @@ class TypeMaterial:
         self.citation = citation
         self.status = status
         self.reference_id = reference_id
+        self.page_reference_id = page_reference_id
         self.locality = locality
         self.country = country
         self.latitude = latitude
@@ -41,6 +43,7 @@ class TypeMaterial:
                self.citation + '\t' + \
                self.status + '\t' + \
                str(self.reference_id) + '\t' + \
+               str(self.page_reference_id) + '\t' + \
                self.locality + '\t' + \
                self.country + '\t' + \
                self.latitude + '\t' + \
@@ -59,6 +62,7 @@ class TypeMaterial:
             'citation': self.citation,
             'status': self.status,
             'reference_id': self.reference_id,
+            'page_reference_id': self.page_reference_id,
             'locality': self.locality,
             'country': self.country,
             'latitude': self.latitude,

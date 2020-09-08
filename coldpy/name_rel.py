@@ -4,16 +4,22 @@ class NameRel:
     def __init__(self,
                  name_id,
                  related_name_id='',
+                 type='',
                  name_rel_type='',
                  published_in_id='',
                  remarks='',
                  needs_review=''):
         self.name_id = name_id
-        self.related_name_id = related_name_id,
-        self.name_rel_type = name_rel_type,
+        self.related_name_id = related_name_id
+        self.type = type
+        self.name_rel_type = name_rel_type
         self.published_in_id = published_in_id
         self.remarks = remarks
         self.needs_review = needs_review
+
+        # Backwards compatibility
+        if name_rel_type != '' and type == '':
+            self.type = name_rel_type
 
     def __str__(self):
         return str(self.name_id) + '\t' + \

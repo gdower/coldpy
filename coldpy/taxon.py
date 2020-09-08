@@ -5,17 +5,18 @@ class Taxon:
                  id,
                  parent_id,
                  name_id,
-                 provisional='',
-                 according_to='',
+                 name_phrase='',
                  according_to_id='',
-                 according_to_date='',
-                 reference_id='',
+                 provisional='',
+                 scrutinizer='',
+                 scrutinizer_id='',
+                 scrutinizer_date='',
                  extinct='',
                  temporal_range_start='',
                  temporal_range_end='',
                  lifezone='',
-                 link='',
-                 remarks='',
+                 reference_id='',
+                 page_reference_id='',
                  species_name='',
                  section_name='',
                  subgenus_name='',
@@ -32,22 +33,25 @@ class Taxon:
                  subphylum_name='',
                  phylum_name='',
                  kingdom_name='',
+                 link='',
+                 remarks='',
                  needs_review=''):
 
         self.id = id
         self.parent_id = parent_id
         self.name_id = name_id
-        self.provisional = provisional
-        self.according_to = according_to
+        self.name_phrase = name_phrase
         self.according_to_id = according_to_id
-        self.according_to_date = according_to_date
-        self.reference_id = reference_id
+        self.provisional = provisional
+        self.scrutinizer = scrutinizer
+        self.scrutinizer_id = scrutinizer_id
+        self.scrutinizer_date = scrutinizer_date
         self.extinct = extinct
         self.temporal_range_start = temporal_range_start
         self.temporal_range_end = temporal_range_end
         self.lifezone = lifezone
-        self.link = link
-        self.remarks = remarks
+        self.reference_id = reference_id
+        self.page_reference_id = page_reference_id
         self.species_name = species_name
         self.section_name = section_name
         self.subgenus_name = subgenus_name
@@ -64,23 +68,26 @@ class Taxon:
         self.subphylum_name = subphylum_name
         self.phylum_name = phylum_name
         self.kingdom_name = kingdom_name
+        self.link = link
+        self.remarks = remarks
         self.needs_review = needs_review
 
     def __str__(self):
         return str(self.id) + '\t' + \
                str(self.parent_id) + '\t' + \
                str(self.name_id) + '\t' + \
-               str(self.provisional) + '\t' + \
-               str(self.according_to) + '\t' + \
+               str(self.name_phrase) + '\t' + \
                str(self.according_to_id) + '\t' + \
-               str(self.according_to_date) + '\t' + \
-               str(self.reference_id) + '\t' + \
+               str(self.provisional) + '\t' + \
+               str(self.scrutinizer) + '\t' + \
+               str(self.scrutinizer_id) + '\t' + \
+               str(self.scrutinizer_date) + '\t' + \
                str(self.extinct) + '\t' + \
                str(self.temporal_range_start) + '\t' + \
                str(self.temporal_range_end) + '\t' + \
                str(self.lifezone) + '\t' + \
-               str(self.link) + '\t' + \
-               str(self.remarks) + '\t' + \
+               str(self.reference_id) + '\t' + \
+               str(self.page_reference_id) + '\t' + \
                str(self.species_name) + '\t' + \
                str(self.section_name) + '\t' + \
                str(self.subgenus_name) + '\t' + \
@@ -96,23 +103,26 @@ class Taxon:
                str(self.class_name) + '\t' + \
                str(self.subphylum_name) + '\t' + \
                str(self.phylum_name) + '\t' + \
-               str(self.kingdom_name) + '\n'
+               str(self.kingdom_name) + '\t' + \
+               str(self.link) + '\t' + \
+               str(self.remarks) + '\n'
 
     def __repr__(self):
         return {'id': self.id,
                 'parent_id': self.parent_id,
                 'name_id': self.name_id,
-                'provisional': self.provisional,
-                'according_to': self.according_to,
+                'name_phrase': self.name_phrase,
                 'according_to_id': self.according_to_id,
-                'according_to_date': self.according_to_date,
-                'reference_id': self.reference_id,
+                'provisional': self.provisional,
+                'scrutinizer': self.scrutinizer,
+                'scrutinizer_id': self.scrutinizer_id,
+                'scrutinizer_date': self.scrutinizer_date,
                 'extinct': self.extinct,
                 'temporal_range_start': self.temporal_range_start,
                 'temporal_range_end': self.temporal_range_end,
                 'lifezone': self.lifezone,
-                'link': self.link,
-                'remarks': self.remarks,
+                'reference_id': self.reference_id,
+                'page_reference_id': self.page_reference_id,
                 'species_name': self.species_name,
                 'section_name': self.section_name,
                 'subgenus_name': self.subgenus_name,
@@ -128,5 +138,7 @@ class Taxon:
                 'class_name': self.class_name,
                 'subphylum_name': self.subphylum_name,
                 'phylum_name': self.phylum_name,
-                'kingdom_name': self.kingdom_name
+                'kingdom_name': self.kingdom_name,
+                'link': self.link,
+                'remarks': self.remarks,
                 }
