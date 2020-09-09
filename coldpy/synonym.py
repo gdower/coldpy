@@ -12,7 +12,8 @@ class Synonym:
                  page_reference_id='',
                  link='',
                  remarks='',
-                 needs_review=''):
+                 needs_review='',
+                 output_tsv=''):
         self.id = id
         self.taxon_id = taxon_id
         self.name_id = name_id
@@ -24,10 +25,25 @@ class Synonym:
         self.link = link
         self.remarks = remarks
         self.needs_review = needs_review
+        self.synonyms = []
+        self.output_tsv = output_tsv
 
-        # Possibly a bad idea
         if id == '':
             self.id = '-'.join([taxon_id, name_id])
+
+    def append(self, synonym):
+        if synonym.isinstance(Synonym):
+            self.synonyms.append(synonym)
+        else:
+            print('Error: synonym must be Synonym type')
+
+    def write_output(self, output_tsv=''):
+        if output_tsv == '' and self.output_tsv != '':
+            output_tsv = self.output_tsv
+        file = open(output_tsv, 'w')
+        for synonym in self.synonyms:
+            file.write(synonym)
+        file.close()
 
     def __str__(self):
         return str(self.id) + '\t' + \

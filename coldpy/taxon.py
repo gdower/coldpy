@@ -35,7 +35,8 @@ class Taxon:
                  kingdom_name='',
                  link='',
                  remarks='',
-                 needs_review=''):
+                 needs_review='',
+                 output_tsv=''):
 
         self.id = id
         self.parent_id = parent_id
@@ -71,6 +72,22 @@ class Taxon:
         self.link = link
         self.remarks = remarks
         self.needs_review = needs_review
+        self.output_tsv = output_tsv
+        self.taxa = []
+
+    def append(self, taxon):
+        if taxon.isinstance(Taxon):
+            self.taxa.append(taxon)
+        else:
+            print('Error: taxon must be Taxon type')
+
+    def write_output(self, output_tsv=''):
+        if output_tsv == '' and self.output_tsv != '':
+            output_tsv = self.output_tsv
+        file = open(output_tsv, 'w')
+        for taxon in self.taxa:
+            file.write(taxon)
+        file.close()
 
     def __str__(self):
         return str(self.id) + '\t' + \

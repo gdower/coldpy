@@ -23,6 +23,7 @@ class Name:
                  status='',
                  link='',
                  remarks='',
+                 output_tsv='',
                  needs_review=''):
         self.id = id
         self.basionym_id = basionym_id
@@ -45,11 +46,27 @@ class Name:
         self.status = status
         self.link = link
         self.remarks = remarks
+        self.output_tsv = output_tsv
         self.needs_review = needs_review
+        self.names = []
 
         # Backwards compatibility
         if published_in_id != '' and reference_id == '':
             self.reference_id = published_in_id
+
+    def append(self, name):
+        if name.isinstance(Name):
+            self.names.append(name)
+        else:
+            print('Error: name must be Name type')
+
+    def write_output(self, output_tsv=''):
+        if output_tsv == '' and self.output_tsv != '':
+            output_tsv = self.output_tsv
+        file = open(output_tsv, 'w')
+        for name in self.names:
+            file.write(name)
+        file.close()
 
     def __str__(self):
         return str(self.id) + '\t' + \
