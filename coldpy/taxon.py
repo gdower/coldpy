@@ -151,7 +151,7 @@ class Taxa:
         self.output_tsv = output_tsv
 
     def append(self, taxon):
-        if taxon.isinstance(Taxon):
+        if isinstance(taxon, Taxon):
             self.taxa.append(taxon)
         else:
             print('Error: taxon must be Taxon type')

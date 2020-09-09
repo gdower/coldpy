@@ -78,7 +78,7 @@ class Synonyms:
         self.output_tsv = output_tsv
 
     def append(self, synonym):
-        if synonym.isinstance(Synonym):
+        if isinstance(synonym, Synonym):
             self.synonyms.append(synonym)
         else:
             print('Error: synonym must be Synonym type')

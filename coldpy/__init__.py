@@ -17,10 +17,13 @@ __all__ = [
     'Distribution',
     'Media',
     'Name',
+    'Names',
     'NameRel',
     'Reference',
     'Synonym',
+    'Synonyms',
     'Taxon',
+    'Taxa',
     'TypeMaterial',
     'VernacularName'
 ]

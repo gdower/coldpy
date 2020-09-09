@@ -101,7 +101,7 @@ class Names:
         self.output_tsv = output_tsv
 
     def append(self, name):
-        if name.isinstance(Name):
+        if isinstance(name, Name):
             self.names.append(name)
         else:
             print('Error: name must be Name type')
