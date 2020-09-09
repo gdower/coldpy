@@ -70,3 +70,23 @@ class Synonym:
             'link': self.link,
             'remarks': self.remarks
         }
+
+class Synonyms:
+
+    def __init__(self, output_tsv):
+        self.synonyms = []
+        self.output_tsv = output_tsv
+
+    def append(self, synonym):
+        if synonym.isinstance(Synonym):
+            self.synonyms.append(synonym)
+        else:
+            print('Error: synonym must be Synonym type')
+
+    def write_output(self, output_tsv=''):
+        if output_tsv == '' and self.output_tsv != '':
+            output_tsv = self.output_tsv
+        file = open(output_tsv, 'w')
+        for synonym in self.synonyms:
+            file.write(synonym)
+        file.close()
