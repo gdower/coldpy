@@ -12,8 +12,7 @@ class Synonym:
                  page_reference_id='',
                  link='',
                  remarks='',
-                 needs_review='',
-                 output_tsv=''):
+                 needs_review=''):
         self.id = id
         self.taxon_id = taxon_id
         self.name_id = name_id
@@ -25,25 +24,6 @@ class Synonym:
         self.link = link
         self.remarks = remarks
         self.needs_review = needs_review
-        self.synonyms = []
-        self.output_tsv = output_tsv
-
-        if id == '':
-            self.id = '-'.join([taxon_id, name_id])
-
-    def append(self, synonym):
-        if synonym.isinstance(Synonym):
-            self.synonyms.append(synonym)
-        else:
-            print('Error: synonym must be Synonym type')
-
-    def write_output(self, output_tsv=''):
-        if output_tsv == '' and self.output_tsv != '':
-            output_tsv = self.output_tsv
-        file = open(output_tsv, 'w')
-        for synonym in self.synonyms:
-            file.write(synonym)
-        file.close()
 
     def __str__(self):
         return str(self.id) + '\t' + \
@@ -57,19 +37,19 @@ class Synonym:
                self.link + '\t' + \
                self.remarks + '\n'
 
-    def __repr__(self):
-        return {
-            'id': self.id,
-            'taxon_id': self.taxon_id,
-            'name_id': self.name_id,
-            'name_phrase': self.name_phrase,
-            'according_to_id': self.according_to_id,
-            'status': self.status,
-            'reference_id': self.reference_id,
-            'page_reference_id': self.page_reference_id,
-            'link': self.link,
-            'remarks': self.remarks
-        }
+    # def __repr__(self):
+    #     return {
+    #         'id': self.id,
+    #         'taxon_id': self.taxon_id,
+    #         'name_id': self.name_id,
+    #         'name_phrase': self.name_phrase,
+    #         'according_to_id': self.according_to_id,
+    #         'status': self.status,
+    #         'reference_id': self.reference_id,
+    #         'page_reference_id': self.page_reference_id,
+    #         'link': self.link,
+    #         'remarks': self.remarks
+    #     }
 
 class Synonyms:
 
@@ -87,6 +67,10 @@ class Synonyms:
         if output_tsv == '' and self.output_tsv != '':
             output_tsv = self.output_tsv
         file = open(output_tsv, 'w')
+        if len(self.synonyms) > 0:
+            header = '\t'.join(self.synonyms[0].__dict__.keys()) + '\n'
+            file.write(header)
         for synonym in self.synonyms:
-            file.write(synonym)
+            row = '\t'.join(str(v) for v in synonym.__dict__.values()) + '\n'
+            file.write(row)
         file.close()

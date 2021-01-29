@@ -2,8 +2,8 @@
 class TypeMaterial:
 
     def __init__(self,
-                 id,
                  name_id,
+                 id='',
                  citation='',
                  status='',
                  reference_id='',
@@ -42,8 +42,8 @@ class TypeMaterial:
                self.name_id + '\t' + \
                self.citation + '\t' + \
                self.status + '\t' + \
-               str(self.reference_id) + '\t' + \
-               str(self.page_reference_id) + '\t' + \
+               self.reference_id + '\t' + \
+               self.page_reference_id + '\t' + \
                self.locality + '\t' + \
                self.country + '\t' + \
                self.latitude + '\t' + \
@@ -55,22 +55,47 @@ class TypeMaterial:
                self.link + '\t' + \
                self.remarks + '\n'
 
-    def __repr__(self):
-        return {
-            'taxon_id': self.id,
-            'name_id': self.name_id,
-            'citation': self.citation,
-            'status': self.status,
-            'reference_id': self.reference_id,
-            'page_reference_id': self.page_reference_id,
-            'locality': self.locality,
-            'country': self.country,
-            'latitude': self.latitude,
-            'longitude': self.longitude,
-            'altitude': self.altitude,
-            'host': self.host,
-            'date': self.date,
-            'collector': self.collector,
-            'link': self.link,
-            'remarks': self.remarks
-        }
+    # def __repr__(self):
+    #     return {
+    #         'id': self.id,
+    #         'name_id': self.name_id,
+    #         'citation': self.citation,
+    #         'status': self.status,
+    #         'reference_id': self.reference_id,
+    #         'page_reference_id': self.page_reference_id,
+    #         'locality': self.locality,
+    #         'country': self.country,
+    #         'latitude': self.latitude,
+    #         'longitude': self.longitude,
+    #         'altitude': self.altitude,
+    #         'host': self.host,
+    #         'date': self.date,
+    #         'collector': self.collector,
+    #         'link': self.link,
+    #         'remarks': self.remarks
+    #     }
+
+
+class TypeMaterials:
+
+    def __init__(self, output_tsv):
+        self.type_materials = []
+        self.output_tsv = output_tsv
+
+    def append(self, type_material):
+        if isinstance(type_material, TypeMaterial):
+            self.type_materials.append(type_material)
+        else:
+            print('Error: type_material must be TypeMaterial type')
+
+    def write_output(self, output_tsv=''):
+        if output_tsv == '' and self.output_tsv != '':
+            output_tsv = self.output_tsv
+        file = open(output_tsv, 'w')
+        if len(self.type_materials) > 0:
+            header = '\t'.join(self.type_materials[0].__dict__.keys()) + '\n'
+            file.write(header)
+        for name in self.type_materials:
+            row = '\t'.join(str(v) for v in name.__dict__.values()) + '\n'
+            file.write(row)
+        file.close()

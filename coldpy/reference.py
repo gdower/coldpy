@@ -50,3 +50,28 @@ class Reference:
             'link': self.link,
             'remarks': self.remarks
         }
+
+
+class References:
+
+    def __init__(self, output_tsv):
+        self.references = []
+        self.output_tsv = output_tsv
+
+    def append(self, reference):
+        if isinstance(reference, Reference):
+            self.references.append(reference)
+        else:
+            print('Error: reference must be Reference type')
+
+    def write_output(self, output_tsv=''):
+        if output_tsv == '' and self.output_tsv != '':
+            output_tsv = self.output_tsv
+        file = open(output_tsv, 'w')
+        if len(self.references) > 0:
+            header = '\t'.join(self.references[0].__dict__.keys()) + '\n'
+            file.write(header)
+        for name in self.references:
+            row = '\t'.join(str(v) for v in name.__dict__.values()) + '\n'
+            file.write(row)
+        file.close()

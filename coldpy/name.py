@@ -71,27 +71,27 @@ class Name:
                str(self.link) + '\t' + \
                str(self.remarks) + '\n'
 
-    def __repr__(self):
-        return {
-            'id': self.id,
-            'basionym_id': self.basionym_id,
-            'scientific_name': self.scientific_name,
-            'authorship': self.authorship,
-            'rank': self.rank,
-            'genus': self.genus,
-            'infrageneric_epithet': self.infrageneric_epithet,
-            'specific_epithet': self.specific_epithet,
-            'infraspecific_epithet': self.infraspecific_epithet,
-            'cultivar_epithet': self.cultivar_epithet,
-            'reference_id': self.published_in_id,
-            'published_in_page': self.published_in_page,
-            'published_in_year': self.published_in_year,
-            'original': self.original,
-            'code': self.code,
-            'status': self.status,
-            'link': self.link,
-            'remarks': self.remarks
-        }
+    # def __repr__(self):
+    #     return {
+    #         'id': self.id,
+    #         'basionym_id': self.basionym_id,
+    #         'scientific_name': self.scientific_name,
+    #         'authorship': self.authorship,
+    #         'rank': self.rank,
+    #         'genus': self.genus,
+    #         'infrageneric_epithet': self.infrageneric_epithet,
+    #         'specific_epithet': self.specific_epithet,
+    #         'infraspecific_epithet': self.infraspecific_epithet,
+    #         'cultivar_epithet': self.cultivar_epithet,
+    #         'reference_id': self.published_in_id,
+    #         'published_in_page': self.published_in_page,
+    #         'published_in_year': self.published_in_year,
+    #         'original': self.original,
+    #         'code': self.code,
+    #         'status': self.status,
+    #         'link': self.link,
+    #         'remarks': self.remarks
+    #     }
 
 
 class Names:
@@ -110,6 +110,10 @@ class Names:
         if output_tsv == '' and self.output_tsv != '':
             output_tsv = self.output_tsv
         file = open(output_tsv, 'w')
+        if len(self.names) > 0:
+            header = '\t'.join(self.names[0].__dict__.keys()) + '\n'
+            file.write(header)
         for name in self.names:
-            file.write(name)
+            row = '\t'.join(str(v) for v in name.__dict__.values()) + '\n'
+            file.write(row)
         file.close()
